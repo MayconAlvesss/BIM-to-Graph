@@ -4,9 +4,9 @@
 
 ---
 
-## 🛠️ Status: Alpha Prototype (Active Development)
+## 🧪 Status: Concept / Scaffold
 
-> **Graph Engine Core Ready.** Implements the conversion logic from IFC (OpenBIM) to NetworkX graph structures. Featuring advanced centrality analysis for structural bottleneck detection. Designed for global large-scale master-planning logic.
+> **Architecture & Vision.** This repository documents the systemic blueprints and product vision for building-to-graph analytics. Active implementation is currently paused while the project serves as a conceptual framework for systemic AEC relationship mapping.
 
 ---
 
