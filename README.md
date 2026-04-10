@@ -1,117 +1,61 @@
-# BIM-to-Graph 🕸️ — Global Network Analysis for Buildings
+<p align="center">
+  <img src="https://img.icons8.com/wired/128/007ACC/network.png" width="80" />
+</p>
 
-> **Transforming hierarchical BIM models into high-density Graph Databases. Optimized for universal structural pathfinding and systemic AEC relationship mapping.**
+# <p align="center">BIM-to-Graph</p>
 
----
+<p align="center">
+  <strong>Transforming Hierarchical BIM Data into Topological Networks.</strong><br>
+  A mathematical engine for mapping spatial, logical, and structural relationships within AEC assets.
+</p>
 
-## 🧪 Status: Concept / Scaffold
-
-> **Architecture & Vision.** This repository documents the systemic blueprints and product vision for building-to-graph analytics. Active implementation is currently paused while the project serves as a conceptual framework for systemic AEC relationship mapping.
-
----
-
-## 🚀 Key Features
-
-| Feature | Description |
-|---|---|
-| **IFC-to-Graph Mapper** | Automated conversion of spatial (`IfcRelAggregates`) and logical relationships to nodes and edges |
-| **Impact Analysis** | Calculates the "Impact Zone" of a deleted or modified element through transitive relationship traversal |
-| **System Connectivity** | Maps MEP-to-Structure dependencies for clash and maintenance impact prediction |
-| **Structural Topology** | Evaluates load-path continuity using graph-theory algorithms (Connectivity, Centrality) |
-| **Neo4j Integration** | Plug-and-play adapter for exporting local NetworkX graphs to Enterprise Neo4j clusters |
+<p align="center">
+  <img src="https://img.shields.io/badge/Architecture-Graph_Theory-007ACC?style=flat-square" />
+  <img src="https://img.shields.io/badge/Engine-NetworkX-007ACC?style=flat-square" />
+  <img src="https://img.shields.io/badge/Interop-OpenBIM-007ACC?style=flat-square" />
+  <img src="https://img.shields.io/badge/Status-Functional_Beta-444444?style=flat-square" />
+</p>
 
 ---
 
-## 🛠️ Technical Stack
+## 🛰️ Topological Foundation
+BIM-to-Graph captures the "living" performance of a building. While traditional BIM tools focus on geometry, this engine extracts **Structural Centrality** and **Load Path Continuity**, treating the building as a relational graph $G = (V, E)$.
 
-| Layer | Technology |
-|---|---|
-| **Graph Logic** | Python 3.12, NetworkX |
-| **BIM Loader** | `ifcopenshell` |
-| **Database** | Neo4j / Memgraph (Optional) |
-| **Persistence** | GraphML / JSON |
-| **Visualization** | Matplotlib / Pyvis |
+### Key Analytical Capabilities
+- **Spatial Aggregation**: Resolving building storeys and zones into a hierarchy of connected nodes.
+- **Impact Simulation**: Analyzing the "Impact Zone" of a deleted or modified structural element through graph traversal.
+- **Dependency Mapping**: Identifying "Single Points of Failure" in MEP and structural systems.
 
----
+## 🏗️ Implementation Layers
 
-## 📂 Project Structure
+### 1. The Factory (`/core`)
+The **`graph_factory.py`** engine handles the conversion of hierarchical data into a unified `NetworkX` directed graph.
 
-```text
-BIM-to-Graph/
-├── core/                        # Graph generation core
-│   ├── graph_factory.py         # IFC classes to NetworkX nodes/edges
-│   └── ifc_adapter.py           # ifcopenshell wrapper for spatial queries
-│
-├── analysis/                    # Graph algorithms
-│   ├── impact_engine.py         # Ripple-effect and dependency analysis
-│   └── pathfinding.py           # MEP and egress route optimization
-│
-├── utils/                       # Shared logic
-│   └── topology.py              # Geometric proximity and connectivity helpers
-│
-├── config/                      # Settings
-│   └── thresholds.py            # Weights for graph edges and impact scores
-│
-├── tests/                       # Validation
-│   └── test_graph_logic.py      # Connectivity and traversal unit tests
-│
-├── requirements.txt             # Project dependencies
-└── README.md                    # Professional documentation
-```
+### 2. The Impact Engine (`/analysis`)
+Advanced algorithms for simulating failures and performance metrics:
+- **Centrality Scores**: Identifying critical structural bottlenecks.
+- **Connectivity Traversal**: BFS/DFS based impact tracking.
+
+### 3. The Topology Lab (`/lab`)
+- **`centrality_test.py`**: A sandbox for testing structural metrics on mock building graphs.
 
 ---
 
-## ⚡ Quick Start
-
-### Step 1 — Setup
-
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-### Step 2 — Generate Building Graph
+## ⚡ Quick Usage
 
 ```python
 from core.graph_factory import GraphFactory
 
-# Load IFC and generate graph
-factory = GraphFactory("pavilion_structure.ifc")
-graph = factory.build_spatial_graph()
+# 1. Initialize and Load relationships
+factory = GraphFactory("Digital_Twin_A")
+factory.build_from_relationships(raw_data)
 
-# Analyze impact of deleting a column
-from analysis.impact_engine import ImpactEngine
-analyzer = ImpactEngine(graph)
-affected = analyzer.simulate_deletion("COL-101")
-
-print(f"Affected elements: {len(affected)}")
+# 2. Analyze Structural Bottlenecks
+scores = factory.get_centrality_scores()
+print(f"Most critical element: {max(scores, key=scores.get)}")
 ```
 
 ---
-
-## 🗺️ Roadmap
-
-- [x] **IFC Schema Mapper** — Basic mapping of `IfcWall`, `IfcBeam`, and `IfcColumn` to nodes
-- [x] **Spatial Graph** — Traversal of `Decomposes` and `Contains` relationships
-- [x] **Impact Engine** — Basic BFS traversal for structural dependency tracking
-- [ ] **MEP Network Mapping** — Detailed flow-direction graph for HVAC and Plumbing
-- [ ] **Structural Failure Sim** — Integration with Finite Element (FEM) data for failure propagation
-- [ ] **Web Dashboard** — 3D Graph visualization using D3.js or React Force-Graph
-
----
-
-## 📄 License
-
-Developed for professional recruitment and AEC research purposes.  
-See internal documentation for specific licensing terms.
-
----
-
-<div align="center">
-  <b>Visualizing the building as a living, connected neural network.</b>
-  <br><br>
-  <i>💡 Architecture & Engineering by <b>Maycon Alves</b></i>
-  <br>
-  <a href="https://github.com/MayconAlvesss" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/maycon-alves-a5b9402bb/" target="_blank">LinkedIn</a>
-</div>
+<p align="center">
+  <i>Part of the <b>Nexus-Twin</b> Ecosystem | Engineering Strategy by <b>Maycon Alves</b></i>
+</p>
