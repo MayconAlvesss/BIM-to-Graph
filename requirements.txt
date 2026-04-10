@@ -1,0 +1,6 @@
+ifcopenshell
+networkx
+matplotlib
+pyvis
+numpy
+pytest
