@@ -34,13 +34,28 @@ class ImpactEngine:
         logger.info(f"Deletion of {start_node} impacts {len(impacted)} elements.")
         return impacted
 
-    def find_critical_path(self) -> List[str]:
+    def find_critical_path(self) -> List[Dict[str, Any]]:
         """
         Identifies elements with high centrality - nodes that link
         multiple systems together (e.g. main structural cores).
+        Uses industry-standard betweenness centrality algorithms.
         """
-        # Centrality analysis using betweenness
+        if not self.graph.nodes:
+            return []
+
+        # Centrality analysis using betweenness (Structural bottleneck detection)
         centrality = nx.betweenness_centrality(self.graph)
-        sorted_centrality = sorted(centrality.items(), key=lambda x: x[1], reverse=True)
+        degree = dict(self.graph.degree())
         
-        return [item[0] for item in sorted_centrality[:5]]
+        results = []
+        for node in centrality:
+            results.append({
+                "node_id": node,
+                "centrality": round(centrality[node], 4),
+                "connections": degree[node],
+                "is_hub": centrality[node] > 0.5
+            })
+            
+        # Sort by importance
+        results.sort(key=lambda x: x['centrality'], reverse=True)
+        return results[:10]

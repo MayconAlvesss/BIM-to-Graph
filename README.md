@@ -1,12 +1,12 @@
-# BIM-to-Graph 🕸️ — Network Analysis for Buildings
+# BIM-to-Graph 🕸️ — Global Network Analysis for Buildings
 
-> **Transforming hierarchical BIM models into high-density Graph Databases. Perform real-time structural impact analysis, logical relationship mapping, and topological pathfinding.**
+> **Transforming hierarchical BIM models into high-density Graph Databases. Optimized for universal structural pathfinding and systemic AEC relationship mapping.**
 
 ---
 
-## ✅ Status
+## 🛠️ Status: Alpha Prototype (Active Development)
 
-> **Graph Engine Core.** Implements the conversion logic from IFC (OpenBIM) to NetworkX graph structures. Featuring an initial Impact Engine for ripple-effect analysis in structural systems. Designed for systemic building logic evaluation.
+> **Graph Engine Core Ready.** Implements the conversion logic from IFC (OpenBIM) to NetworkX graph structures. Featuring advanced centrality analysis for structural bottleneck detection. Designed for global large-scale master-planning logic.
 
 ---
 
